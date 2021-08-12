@@ -1,13 +1,19 @@
 import time
 import json
+
 from selenium import webdriver
+from selenium.webdriver.chrome import service
+
 from parsel import Selector
 
 f = open('github_pass.json', 'r')
 keys = dict(json.load(f))
 f.close()
 
-browser = webdriver.Firefox(executable_path='./webdrivers/geckodriver')
+webdriver_service = service.Service('./webdrivers/operadriver')
+webdriver_service.start()
+
+browser = webdriver.Remote(webdriver_service.service_url, webdriver.DesiredCapabilities.OPERA)
 browser.maximize_window()
 browser.get('https://github.com/')
 time.sleep(1)

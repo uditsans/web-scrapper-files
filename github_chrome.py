@@ -7,7 +7,7 @@ f = open('github_pass.json', 'r')
 keys = dict(json.load(f))
 f.close()
 
-browser = webdriver.Firefox(executable_path='./webdrivers/geckodriver')
+browser = webdriver.Chrome('./webdrivers/chromedriver')
 browser.maximize_window()
 browser.get('https://github.com/')
 time.sleep(1)
