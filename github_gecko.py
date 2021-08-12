@@ -3,11 +3,11 @@ import json
 from selenium import webdriver
 from parsel import Selector
 
-f = open('password_keys.json', 'r')
+f = open('github_pass.json', 'r')
 keys = dict(json.load(f))
 f.close()
 
-browser = webdriver.Firefox()
+browser = webdriver.Firefox(executable_path='./geckodriver')
 browser.get('https://github.com/')
 time.sleep(1)
 
